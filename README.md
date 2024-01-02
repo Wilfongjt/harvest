@@ -2,20 +2,21 @@
 Create and extract markdown comments.
 
 ### The Issues
-* Writing coding is hard. 
+* Writing code is hard. 
 * Writing useful comments is harder. 
 * Writing comments that can be understood a month later might be impossible.
 
 ### The Challenges
 * I hate comments.
 * I don't know what to write in a comment.
-* Read the code to figure it out.
+* I don't want to read the code to figure it out.
 * Integrating code and documentation sucks.
 
 ### The Strategies
 * Keep a comment relative to the code where it appears.
 * Develop sentence patterns to give your brain a rest.
-* Change from the __descriptive__ style of comment to a __purpose__ based comment. 
+* Change from the __descriptive__ style of comment to a __purpose__ written comment. 
+* Enhance the comment with markdown markup language
 
 ## Descriptive vs Purpose Comments
 * Descriptive comments describe what the code does. 
@@ -24,9 +25,10 @@ Create and extract markdown comments.
 ## Keep It Simple
 ## One Thing
 __What are Markdown Comments__
-Nothing special. 
+Markdown encoded comment are a not fancy.
+Comments written in markdown 
 
-### Technical vs Purpose based comments 
+### Descriptive vs Purpose written comments 
 
 Markdown comments are normal single line comments with an extra hash '#'
 
@@ -38,7 +40,7 @@ Markdown comments are normal single line comments with an extra hash '#'
 ##* Bullet
 ```
 
-__The Double Hash__ 
+__The Double Hash__, ##
 
 Identify the markdown comments with the double hash '##'
 In your code, identify markdown comments with  
@@ -51,6 +53,8 @@ In your code, identify markdown comments with
 ##__Bold test__
 ##* Bullet
 ```
+<hr>
+
 # Title text
 Plain test
 __Bold test__
@@ -65,12 +69,15 @@ Add an extra line before "Bullet"
 ##__Bold test__
 ##* Bullet
 ```
-Plain test
+
+__Output__
+
+Plain text
 
 __Bold test__
 * Bullet
 
-
+<hr>
 
 Function comments
 ```python
@@ -94,7 +101,10 @@ class Mergable():
 cd harvest/bin/
 python harvest
 ```
+<hr>
+
 # Patterns
+
 Knowing what to write is always a challenge. 
 Shifting from developer brain to commenter brain is difficult.
 Patterns are a useful hack to get you started.
@@ -174,6 +184,11 @@ __Mergable__
 Render a template with user provided values
 * Merge name-value pairs into a given template string on request
 
+<hr>
 
+# Example
+Using the bin/harvest.py script, I've generated [crop/Readme.md](../crop/Readme.md) 
+
+<hr>
 
 ### Harvest 
