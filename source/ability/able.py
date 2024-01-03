@@ -2,11 +2,11 @@ import os
 import sys
 from source.lb_util import LbUtil
 ### Abilities
-##
+
 class Appendable():
     ##__Appendable__
     ##
-    ## Control ablity to append new items to document
+    ## Provide the abilty to append new lines to a document
     ##
     def __init__(self):
         #print('appendable init')
@@ -20,6 +20,7 @@ class Appendable():
         ##
         self.appendable=tf
         return self
+
 
 class ClassNameable():
     ##__ClassNameable__
@@ -158,6 +159,26 @@ class Folderable():
         os.makedirs(folder, exist_ok=True)
         return self
 
+class Inputability():
+    ##
+    ##__Inputability__
+    ## Enable input from user
+    ##
+    def get_input(self, msg, default, hardstop=True):
+        ##* Prompt user for input
+        ##* Show current value or default
+        rc = '{} [{}] : '.format(msg, default)
+        rc = input(rc)
+        ##* Provide a default input value when user presses return
+        if not rc:
+            rc = default
+        ##* Cause a hard stop when user types 'n','N','x','X','q' or 'Q'
+        if rc in ['n','N','x','X','q','Q','TBD']:
+            if hardstop:
+                print('stopping...Stopped')
+                exit(0)
+
+        return rc
 class Mergable():
     ##
     ##__Mergable__

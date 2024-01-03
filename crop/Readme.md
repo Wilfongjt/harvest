@@ -1,14 +1,15 @@
 # Harvest comments from python files in this project
 * Create documentation for python (.py) files
 * output docs to a single project_folder, eg /docs
+* Collect output folder name when entered by user
+* Collect output filename when entered by user
 * create output folder when folder does not exist
 * Finally, Save to file
 * overwrite when file exists
 # Abilities
-
 __Appendable__
 
- Control ablity to append new items to document
+ Provide the abilty to append new lines to a document
 
 * get appendable state on request
 * set appendable state on request
@@ -63,6 +64,14 @@ __Folderable__
 * provide a list of files for a given folder
 * determine if folder exists on request
 * create folders on request
+
+__Inputability__
+ Enable input from user
+
+* Prompt user for input
+* Show current value or default
+* Provide a default input value when user presses return
+* Cause a hard stop when user types 'n','N','x','X','q' or 'Q'
 
 __Mergable__
 
