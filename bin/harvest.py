@@ -1,29 +1,26 @@
 
 import os
 from pprint import pprint
-#from source.utility_script import UtilityRecorder
-#from source.lb_template_markdown import Lb_MarkDownString #LbDocComments
-#from source.lb_reader_string import ReaderString
-#from source.lb_util import LbUtil
-from source.ability.able import Fileable,Folderable
+
+from source.ability.able import Fileable,Folderable, Inputability
 from source.reader_string import ReaderString
 from source.farm import Field, CommentMarkdown
-
-# from source.lb_template_saveable import SavableString, Lb_SaveableTemplate
 
 def main():
     ### Harvest comments from python files in this project
     ##* Create documentation for python (.py) files
-
-    from source.lb_util import LbUtil
-
     ##* output docs to a single project_folder, eg /docs
+    ##* Collect output folder name when entered by user
+    default_output_folder = os.getcwd().split('/')[0:-1]
+    default_output_folder.append('crop')
+    default_output_folder = '/'.join(default_output_folder)
+    output_folder = Inputability().get_input('Output folder', default_output_folder, hardstop=True)
+    ##* Collect output filename when entered by user
+    output_filename = Inputability().get_input('Output file name', 'Readme.md', hardstop=True)
+    print('output folder', output_folder)
+    print('output filename', output_filename)
 
-    output_folder = os.getcwd().split('/')[0:-1]
-    output_folder.append('crop')
-    output_folder = '/'.join(output_folder)
-
-    print('output', output_folder)
+    #if 1==1: exit(0)
 
     search_folder = os.getcwd().replace('/bin','')
     file_list = Field(search_folder, '.py').traverse_folder()
@@ -39,7 +36,7 @@ def main():
     Folderable().makedirs(output_folder)
     ##* Finally, Save to file
     ##* overwrite when file exists
-    commentMarkdown.save('{}/Readme.md'.format(output_folder))
+    commentMarkdown.save('{}/{}'.format(output_folder, output_filename))
 
 if __name__ == "__main__":
     # execute as docker
