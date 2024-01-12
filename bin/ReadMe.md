@@ -17,10 +17,6 @@
 * HARVEST_OUTPUT_FOLDER defines where to send output
 * HARVEST_OUTPUT_FILENAME defines the name of the output file
 
-__NameValue_UpdaterString__
-
- Update a single name-value pair
-
 ## The Field
 
 __Field__
@@ -40,16 +36,3 @@ __CropMarkdown__
  collect all the markdwon comments from a string on request
 * remove leading spaces for markdown legibility
 * replace first occuance of "#" in markdown comment
-## The Shed
-
- Maintain the "harvest.env" file
-
-__UpdaterString__
-
- Replace line containing key with a new line
-* eg "A big dog" -> "A big cat"
- Extentions
-
-__NameValueList_UpdaterString__
-
- Update multiple name-value pairs
