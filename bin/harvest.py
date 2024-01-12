@@ -2,15 +2,15 @@
 import os
 import re
 from pprint import pprint
-from able import FileEnv, FolderFileable, Inputable, ReaderString, CreatorString
+from able import FileEnv, FolderFileable, Inputable, ReaderString, CreatorString, UpdaterString_NameValueList
 #from source.ability.dep_able import Fileable,Folderable, Inputabile, Saveable
 #from source.reader_string import ReaderString
 from source.field import Field
 from source.crop import CropMarkdown
-from source.string_updater_name_value_list import NameValueList_UpdaterString
+#from source.string_updater_name_value_list import NameValueList_UpdaterString
 import datetime
 
-__version__='0.1.1'
+__version__='1.0.3'
 
 
 def main():
@@ -83,7 +83,7 @@ def main():
                       for el in os.environ if el.startswith('HARVEST_')]
 
         contents = ReaderString(env_folderfilename)
-        contents = NameValueList_UpdaterString(contents).update(changelist)
+        contents = UpdaterString_NameValueList(contents).update(changelist)
         contents = CreatorString(folder_filename=env_folderfilename, default_contents=contents,overwrite=True)
         #print('content', contents)
 
