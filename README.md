@@ -112,5 +112,5 @@ Using the bin/harvest.py script, I've generated [crop/Readme.md](./crop/Readme.m
 <hr>
 
 ### Harvest 
-Harvest is a python script to generate a Readme.md file. 
+Harvest is a python script to generate a [Readme.md](bin/ReadMe.md) file. 
 
