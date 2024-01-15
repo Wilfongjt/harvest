@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='able',
-    version=__version__,
+    version='1.2.0',
     url='https://github.com/Wilfongjt/abilities',
     author='James Wilfong',
     author_email='wilfongjt@gmail.com',

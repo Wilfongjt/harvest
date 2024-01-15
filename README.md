@@ -10,6 +10,7 @@ And where is the code that implements that new feature?
 ## Get started
 1. clone the harvest repo
 2. install python 3.9.6
+3. install the "able" library, run the scripts/05.install.from.gh.sh
 3. run bin/harvest.py
 4. accept the defaults when askded for HARVEST_INPUT_FOLDER, HARVEST_OUTPUT_FOLDER, and HARVEST_OUTPUT_FILENAME values
 4. type Y to save these values in the harvest.env file
