@@ -19,11 +19,6 @@
 * HARVEST_OUTPUT_FOLDER defines where to send output
 * HARVEST_OUTPUT_FILENAME defines the name of the output file
 
-## Environment
-* HARVEST_INPUT_FOLDER defines where to get input
-* HARVEST_OUTPUT_FOLDER defines where to send output
-* HARVEST_OUTPUT_FILENAME defines the name of the output file
-
 ## The Field
 
 __Field__
