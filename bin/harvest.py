@@ -1,18 +1,16 @@
 
 import os
-import re
-from pprint import pprint
-from able import EnvString, FolderFileable, Inputable, ReaderString, CreatorString, UpdaterString
-#from source.ability.dep_able import Fileable,Folderable, Inputabile, Saveable
-#from source.reader_string import ReaderString
+
+from able import EnvString, \
+                 Inputable, \
+                 ReaderString, \
+                 CreatorString, \
+                 UpdaterString, \
+                 TemplateString
+
 from source.field import Field
 from source.crop import CropMarkdown
-#from source.string_creator_env import CreatorString_Env
-from source.string_template import TemplateString
-#from source.string_updater_name_value_list import NameValueList_UpdaterString
-import datetime
 
-__version__='1.1.1'
 def get_bin_folder():
     return os.getcwd()
 def get_default_input_folder():
