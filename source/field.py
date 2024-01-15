@@ -35,6 +35,7 @@ class Field(list):
             folders.append(f)
 
         return folders
+
     def traverse(self, folder):
         fflist = self.get_folder_contents(folder)
         for ff in fflist:
@@ -46,7 +47,7 @@ class Field(list):
                     fn = ff.split('/')[-1]
                     ext =fn.split('.')
                     if len(ext)>1:
-                        ext = '.{}'.format(fn.split('.')[1])
+                        ext = '.{}'.format(fn.split('.')[-1])
                         if ext in self.ext:
                             self.append(ff)
 

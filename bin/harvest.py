@@ -39,19 +39,16 @@ def main():
                         .merge('<<HARVEST_INPUT_FOLDER>>',get_default_input_folder())\
                         .merge('<<HARVEST_OUTPUT_FOLDER>>',get_default_output_folder())
 
-    #print('template_string', template_string)
-    #if 1==1: exit(0)
-    #CreatorString_Env(env_folder_filename,
-    #                  template_string,
-    #                  overwrite=False)
     contents = CreatorString(folder_filename=env_folder_filename,
                              default_contents=template_string,
                              overwrite=False, hardfail=False)
 
     ##* Load environment variables into memory
-    env_string = EnvString(env_folder_filename) # .read() #.load()
+
+    env_string = EnvString(env_folder_filename)
 
     ##* Collect input folder name when entered by user
+
     os.environ['HARVEST_INPUT_FOLDER'] = Inputable().get_input('HARVEST_INPUT_FOLDER',
                                          os.environ['HARVEST_INPUT_FOLDER'],
                                          hardstop=True)
@@ -78,6 +75,7 @@ def main():
     print('HARVEST_OUTPUT_FILENAME:',os.environ['HARVEST_OUTPUT_FILENAME'])
 
     ##* Include files ending with ".py", and ".env"
+
     file_list = Field(folder=os.environ['HARVEST_INPUT_FOLDER'],
                       ext=['.py', '.env']).traverse_folder()
 
@@ -87,7 +85,7 @@ def main():
     comments = []
     commentMarkdown = CropMarkdown(lookfor='##')
     for f in file_list:
-        print('file', f)
+        print('field file', f)
         commentMarkdown.load(ReaderString(f))
 
     ##* Create output folder when folder does not exist
@@ -102,9 +100,6 @@ def main():
 
     if save_env.upper() == 'Y':
         ##* Save harvest.env in the same folder as harvest.py
-        #env_folder_filename = os.getcwd()
-        #env_folder_filename = '{}/harvest.env'.format(os.getcwd())
-        #print('save environment in', env_folder_filename)
 
         changelist = [{'name': el, 'value':os.environ[el]}
                       for el in os.environ if el.startswith('HARVEST_')]
@@ -112,7 +107,6 @@ def main():
         contents = EnvString(env_folder_filename)
         contents = UpdaterString(contents).updates(changelist)
         contents = CreatorString(folder_filename=env_folder_filename, default_contents=contents,overwrite=True)
-        #print('content', contents)
 
 if __name__ == "__main__":
     # execute as docker
