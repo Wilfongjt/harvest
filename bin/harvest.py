@@ -3,7 +3,7 @@ import os
 
 from able import EnvString, \
                  Inputable, \
-                 ReaderString, \
+                 StringReader, \
                  CreatorString, \
                  UpdaterString, \
                  TemplateString
@@ -33,7 +33,7 @@ def main():
     ##* Use a template to initialize the harvest.env
 
     template_folder_filename = '{}/harvest.env.tmpl'.format(get_template_folder())
-    template_string = TemplateString(ReaderString(template_folder_filename))\
+    template_string = TemplateString(StringReader(template_folder_filename))\
                         .merge('<<HARVEST_INPUT_FOLDER>>',get_default_input_folder())\
                         .merge('<<HARVEST_OUTPUT_FOLDER>>',get_default_output_folder())
 
@@ -84,7 +84,7 @@ def main():
     commentMarkdown = CropMarkdown(lookfor='##')
     for f in file_list:
         print('field file', f)
-        commentMarkdown.load(ReaderString(f))
+        commentMarkdown.load(StringReader(f))
 
     ##* Create output folder when folder does not exist
 
