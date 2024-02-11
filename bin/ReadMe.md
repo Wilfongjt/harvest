@@ -1,18 +1,47 @@
 # Harvest
 
- Compile "comments" from files in the harvest project
+ Create a README file from the comments found in project code.
 
-* Compile comments into a single file
-* Load environment variables from harvest.env
-* Use a template to initialize the harvest.env
-* Load environment variables into memory
-* Collect input folder name when entered by user
-* Collect output folder name when entered by user
-* Collect output filename when entered by user
-* Include files ending with ".py", and ".env"
-* Create output folder when folder does not exist
-* Save input, output and filename in the harvest.env file
-* Save harvest.env in the same folder as harvest.py
+## Process
+### Expected
+```
+ setup env ...........   + create harvest.env
+                         |     + use template when template is available
+                         |         + use <<template>> style
+                         |
+ confirm env .........   + confirm <<HARVEST_INPUT_FOLDER>>
+                         + confirm <<HARVEST_OUTPUT_FOLDER>>
+                         + confirm <<HARVEST_OUTPUT_FILENAME>>
+                         |
+ harvest .............   + find all files ending in '.py' or '.env'
+                         |   + find all lines that start with '##'
+                         |       + convert lines to markdown
+                         |
+ save README ........... + save compiliation to 'README.md'
+                         |
+ save env changes ....   + confirm env save
+                         +
+```
+### Actual
+1. Setup environment
+    1. Load environment variables from harvest.env
+    1. Use a template to initialize environment file
+    1. Load environment variables into memory
+1. Confirm or Change Environment Variables
+    1. Collect input folder name when entered by user
+    1. Collect output folder name when entered by user
+    1. Collect output filename when entered by user
+    1. Confirm the saving of ".env"
+1. Harvest
+    1. Include files ending with ".py", and ".env"
+    1. Create output folder when folder does not exist
+1. Save
+    1. Save README
+        1. Save in the same folder as harvest.py
+    1. Save harvest.env
+        1. Save in the same folder as harvest.py
+        1. Preserve user's manual changes
+        1. Update changes to existing environment variables
 
 ## Environment
 * HARVEST_INPUT_FOLDER defines where to get input

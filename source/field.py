@@ -1,7 +1,7 @@
 #import os
 import os
 from pprint import pprint
-from able import LbUtil, FolderFileable, ReaderString, CreatorString
+from able import LbUtil, FolderFileable, StringReader, CreatorString
 # The Markdown
 ##
 #### The Field
@@ -63,12 +63,10 @@ def main():
     from pprint import pprint
 
     folder = os.getcwd().replace('/source','')
-    #folder = os.getcwd().replace('/source','/bin')
-    print('folder', folder)
+    #print('folder', folder)
     assert(Field(folder=folder, ext=['.py','.env'])==[])
 
     assert(Field(folder=folder, ext=['.py','.env']).get_folder_contents()!=[])
-    #pprint(Field(folder=folder, ext=['.py','.env']).get_folder_contents())
     print('---')
     pprint(Field(folder=folder, ext=['.py','.env']).traverse_folder())
 
