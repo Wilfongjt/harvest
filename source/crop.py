@@ -1,6 +1,6 @@
 #import os
 import os
-from able import LbUtil, FolderFileable, ReaderString, CreatorString
+from able import LbUtil, FolderFileable, StringReader, CreatorString
 #from source.lb_util import LbUtil
 #from source.ability.dep_able import Fileable,Folderable
 ##
@@ -37,7 +37,7 @@ class CropMarkdown(list, FolderFileable):
 def main():
 
     assert(CropMarkdown() == [])
-    contents = ReaderString(__file__)
+    contents = StringReader(__file__)
     assert(CropMarkdown().load(contents) != [])
     #print (CropMarkdown().load(contents).toString())
 
